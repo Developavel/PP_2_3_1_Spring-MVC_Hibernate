@@ -10,12 +10,12 @@ import web.service.CarService;
 
 @Controller
 @RequestMapping("/cars")
-public class CarController {
+public class UserController {
 
     private final CarService carService;
 
     @Autowired
-    public CarController(CarService carService) {
+    public UserController(CarService carService) {
         this.carService = carService;
     }
 
