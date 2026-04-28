@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User</title>
+</head>
+<body>
+<h1>User Details</h1>
+
+<p>ID: <span th:text="${user.id}">1</span></p>
+<p>Name: <span th:text="${user.name}">John</span></p>
+<p>Lastname: <span th:text="${user.lastname}">Doe</span></p>
+
+<a th:href="'edit?id=' + ${user.id}">Edit</a>
+<a th:href="'delete?id=' + ${user.id}">Delete</a>
+</body>
+</html>
