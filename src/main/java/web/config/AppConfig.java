@@ -17,6 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @PropertySource("classpath:db.properties")
+@PropertySource("classpath:hibernate.properties")
 @EnableTransactionManagement
 @ComponentScan(value = "web")
 public class AppConfig {
@@ -46,7 +47,7 @@ public class AppConfig {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager() {  // ✅ ДОБАВЬТЕ ЭТО
+    public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(getEntityManagerFactory().getObject());
         return transactionManager;
