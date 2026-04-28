@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
 </head>
 <body>
-<h1 th:text="${name}">Users:</h1>
+<h1 th:text="${name}"/>
 
 <table border="1">
     <thead>
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Lastname</th>
-        <th>Actions</th>
+        <th>Last Name</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
-        <td th:text="${user.id}">1</td>
-        <td th:text="${user.name}">John</td>
-        <td th:text="${user.lastname}">Doe</td>
+        <td th:text="${user.id}"/>
+        <td th:text="${user.name}"/>
+        <td th:text="${user.lastName}"/>
         <td>
-            <a th:href="'users/edit?id=' + ${user.id}">Edit</a>
-            <a th:href="'users/delete?id=' + ${user.id}">Delete</a>
+            <a th:href="@{/users/edit(id=${user.id})}">Edit</a>
+            <form th:action="@{/users/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${user.id}"/>
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     </tbody>
